@@ -49,6 +49,17 @@ char getChar(const int& i){
 
 ## Task 2
 
+![tasktwo](image/tasktwo.png)
+
 ## Task 3
 
+![taskthree](image/taskthree.png)
+
 ## Task 4
+
+point
+
+![testtaskfour](image/testtaskfour.png)
+
+![taskfour](image/taskfour.png)
+
