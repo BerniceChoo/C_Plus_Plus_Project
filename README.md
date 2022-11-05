@@ -7,9 +7,28 @@ Click on the following to the each task:-
 
 ## Task 1
 
-The implementation is compatible with strings of any length, because it employs dynamic memory allocation to create a duplicate of any string data provided in construction or via assignment.
+![allocate](image/allocate.png)
 
-//![allocate](image/allocate.png)
+The implementation is compatible with strings of any length, because it employs dynamic memory allocation to create a duplicate of any string data provided in construction or via assignment.  
+
+```
+#include"my_string.hpp"
+
+int main() {
+    my_string s("Hello world");
+    s.print(); 
+    {
+       my_string t = s;
+       s.print();
+       t.print();
+       std::cout << s.getChar(1) << std::endl;
+       s.print();
+       t.print();
+    }
+    s.setChar(1,'E');
+    s.print();
+}
+```
 
 The string should not be duplicated by the assignment and copy operations. This is because they ought to have the same underlying memory, so changing one string updates the other, and so on.
 
@@ -25,8 +44,8 @@ char getChar(const int& i){
     void print() {
         std::cout << str_ << " " << "[" <<*counter << "]" << std::endl; //print statement
     }
-git push -uf origin main
 ```
+![taskone](image/taskone.png)
 
 ## Task 2
 
