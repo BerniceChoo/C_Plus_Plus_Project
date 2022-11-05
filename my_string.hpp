@@ -6,7 +6,7 @@ using namespace std;
 class my_string {
 
 private:
-    char * str_;
+    char * str_; // to allocate dynamic memory for the string
     int * counter;
 
 public:
@@ -16,43 +16,44 @@ public:
     }
 
     my_string(const char* str) {
-        str_ = new char[strlen(str) + 1];
+        str_ = new char[strlen(str) + 1]; // dynamic memory allocation
         strcpy(str_, str);
-        counter = new int;
+        counter = new int; // dynamic memory allocation
         *counter = 1;
     }
 
     my_string(my_string const& s) {
-        this-> str_ = s.str_;
+        this-> str_ = s.str_; // use "this->" because it refers to the current instance of the class.
         this-> counter=s.counter;
-        *counter = *counter + 1;
+        *counter = *counter + 1; // counter plus one because in string the first character starts from 0
+        //Therefore, to make the first character 1, it has to plus 1
     }
 
     my_string& operator= (my_string const& s){
         if (this == &s)
         {
-            return *this;
+            return *this; // return counter
         }
 
         this-> str_ = s.str_;
-        this-> counter=s.counter;
-        *counter = *counter + 1;
-        return *this;
+        this-> counter=s.counter; //to support automatic reference counting
+        *counter = *counter + 1; //counter plus one because in string the first character starts from 0
+        return *this; // return counter
     }
 
-    ~my_string() { // task 3
+    ~my_string() { // free the allocated memory
         //delete[] str_;
-        *counter = *counter-1;
+        *counter = *counter-1; 
 
-        if (*counter==0){
-            std::cout << "Refenrence counter ==0 ,hence deleting object :" << str_ << std::endl;
-            delete str_;
-            delete counter;
+        if (*counter==0){ // ONLY when the reference count is 0
+            std::cout << "Refenrence counter = 0 ,hence deleting object : " << str_ << std::endl; //print demostration for task 3
+            delete str_; //it will delete the object, when the case of a reference count is 0
+            delete counter; // delte counter, when the case of a reference count is 0
         }
     }
 
     char getChar(const int& i){
-        return str_[i];
+        return str_[i]; // retrun string
     }
     const
 
@@ -60,6 +61,6 @@ public:
         str_[i] = c;
     }
     void print() {
-        std::cout << str_ << " " << "[" <<*counter << "]" << std::endl;
+        std::cout << str_ << " " << "[" <<*counter << "]" << std::endl; //print statement
     }
 };
