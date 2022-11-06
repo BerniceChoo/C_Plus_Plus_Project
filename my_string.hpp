@@ -23,7 +23,7 @@ public:
     }
 
     my_string(my_string const& s) {
-        this-> str_ = s.str_; // use "this->" because it refers to the current instance of the class.
+        this-> str_ = s.str_; // use "this->" because it refers to the current instance of the class
         this-> counter=s.counter;
         *counter = *counter + 1; // counter plus one because in string the first character starts from 0
         //Therefore, to make the first character 1, it has to plus 1
