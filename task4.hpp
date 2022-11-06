@@ -5,22 +5,22 @@ using namespace std;
 class Point{
 
     private:
-        int x;
+        int x; // create object
         int y;
 
     public:
         Point(int const& x, int const& y){
-            this->x = x;
+            this->x = x; //use "this->" because it refers to the current instance of the class.
             this->y = y;
         }
 
         void display(){
-            cout << "X = " << x << ", Y = " << y << endl;
+            cout << "X = " << x << ", Y = " << y << endl; // print points
 
         }
 };
 
-template <typename T>
+template <typename T> // template function_declaration
 class Referencecounter{
 
     private:
@@ -99,7 +99,7 @@ public:
         return *this;
     }
 
-    ~my_string() { // task 3
+    ~my_string() {
         delete str_;
     }
 
