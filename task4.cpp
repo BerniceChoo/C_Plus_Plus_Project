@@ -4,8 +4,9 @@
 using namespace std;
 
 int main(){
-    //Point p1(5,2);
-    //p1.display();
+    //Test with points
+    // Point p1(5,2);
+    // p1.display();
 
     // Referencecounter<Point> p1 (new Point(4,3));
     // cout << "Point counter:" << p1.get_counter() << endl;
