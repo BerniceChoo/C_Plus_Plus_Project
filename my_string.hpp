@@ -48,7 +48,7 @@ public:
         if (*counter==0){ // ONLY when the reference count is 0
             std::cout << "Refenrence counter = 0 ,hence deleting object : " << str_ << std::endl; //print demostration for task 3
             delete str_; //it will delete the object, when the case of a reference count is 0
-            delete counter; // delte counter, when the case of a reference count is 0
+            delete counter; // delete counter, when the case of a reference count is 0
         }
     }
 
