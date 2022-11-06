@@ -6,6 +6,7 @@ Click on the following to the each task:-
 [Task 4](#task-4)<br />
 
 ## Task 1
+The implementation is compatible with strings of any length, because it employs dynamic memory allocation to create a duplicate of any string data provided in construction or via assignment.  
 
 ```
 private:
@@ -18,7 +19,7 @@ public:
     }
 ```
 
-The implementation is compatible with strings of any length, because it employs dynamic memory allocation to create a duplicate of any string data provided in construction or via assignment.  
+The output of the following will be "HEllo world" on the last line, because it is set that [1] will change to a uppercase 'e'.
 
 ```
 #include"my_string.hpp"
@@ -96,6 +97,7 @@ The output of task 2:-
 
 ## Task 3
 Extend the example test program to demostrate when the case of a reference count of 0 where it free the allocated memory.
+The IF statement is used to allows reference count of 0.
 
 ```
 ~my_string() { // free the allocated memory
@@ -116,7 +118,8 @@ The output of task 3:-
 
 ## Task 4
 
-point
+#### Point
+Before working on string, points were used to test for the referencing counting class.
 ```
 class Point{
 
@@ -151,7 +154,10 @@ Test with points:-
     }
 ```
 
-template allows us to create a function template whose functionality can be adapted to more than one type or class without repeating the entire code for each type. It will be an object of the same type as the parameters a and b when the function template is instantiated with a specific type.
+#### Template
+Template allows us to create a function template whose functionality can be adapted to more than one type or class without repeating the entire code for each type. It will be an object of the same type as the parameters a and b when the function template is instantiated with a specific type.
+
+A template class that handles reference counting:-
 ```
 template <typename T> // template function_declaration
 class Referencecounter{
