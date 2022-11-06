@@ -10,7 +10,7 @@ class Point{
 
     public:
         Point(int const& x, int const& y){
-            this->x = x; //use "this->" because it refers to the current instance of the class.
+            this->x = x; //use "this->" because it refers to the current instance of the class
             this->y = y;
         }
 
