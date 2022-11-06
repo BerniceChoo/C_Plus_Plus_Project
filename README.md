@@ -54,7 +54,7 @@ char getChar(const int& i){
         std::cout << str_ << " " << "[" <<*counter << "]" << std::endl; //print statement
     }
 ```
-the output of task 1:-
+The output of task 1:-
 ![taskone](images/taskone.png)
 
 ## Task 2
@@ -91,6 +91,7 @@ my_string(my_string const& s) {
 
 Counter is added one because in string the first character starts from 0. Therefore, to make the first character 1, it has to plus 1.
 
+The output of task 2:-
 ![tasktwo](images/tasktwo.png)
 
 ## Task 3
@@ -110,13 +111,98 @@ Extend the example test program to demostrate when the case of a reference count
 ```
 When the reference count is 0, it will conduct the IF statement which will delete the object and counter.
 
-![taskthree](image/taskthree.png)
+The output of task 3:-
+![taskthree](images/taskthree.png)
 
 ## Task 4
 
 point
+```
+class Point{
 
-![testtaskfour](image/testtaskfour.png)
+    private:
+        int x; // create object
+        int y;
 
-![taskfour](image/taskfour.png)
+    public:
+        Point(int const& x, int const& y){
+            this->x = x; //use "this->" because it refers to the current instance of the class
+            this->y = y;
+        }
+
+        void display(){
+            cout << "X = " << x << ", Y = " << y << endl; // print points
+
+        }
+};
+```
+
+Test with points:-
+```
+    //Test with points
+    Point p1(5,2);
+    p1.display();
+
+    Referencecounter<Point> p1 (new Point(4,3));
+    cout << "Point counter:" << p1.get_counter() << endl;
+
+    {Referencecounter<Point> p2 (p1);
+    cout << "Point counter:" << p1.get_counter() << endl;
+    }
+```
+
+template allows us to create a function template whose functionality can be adapted to more than one type or class without repeating the entire code for each type. It will be an object of the same type as the parameters a and b when the function template is instantiated with a specific type.
+```
+template <typename T> // template function_declaration
+class Referencecounter{
+
+    private:
+        T* data;
+        int * counter;
+
+    public:
+        Referencecounter(): data(), counter(new int (0)){
+
+        }
+        Referencecounter(T * data) : data(data), counter(new int (1)){
+
+        }
+
+        Referencecounter(Referencecounter const& obj){
+            this-> data = obj.data;
+            this-> counter=obj.counter;
+            *counter = *counter + 1;
+        }
+
+        Referencecounter& operator= (Referencecounter const& obj){
+
+            if (this== &obj){
+                return *this;
+            }            
+            this-> data = obj.data;
+            this-> counter=obj.counter;
+            *counter = *counter + 1;
+            return *this;
+        }
+
+        T* operator->(){
+            return this->data;
+        }
+
+        int get_counter(){
+            return *counter;
+        }
+
+        ~Referencecounter(){
+            *counter = *counter-1;
+            if (*counter == 0){
+                delete data;
+                delete counter;
+            }
+        }
+};
+```
+
+The output of task 4:-
+![taskfour](images/taskfour.png)
 
