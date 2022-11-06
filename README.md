@@ -55,7 +55,7 @@ char getChar(const int& i){
     }
 ```
 the output of task 1:-
-![taskone](image/taskone.png)
+![taskone](images/taskone.png)
 
 ## Task 2
 
@@ -91,7 +91,7 @@ my_string(my_string const& s) {
 
 Counter is added one because in string the first character starts from 0. Therefore, to make the first character 1, it has to plus 1.
 
-![tasktwo](image/tasktwo.png)
+![tasktwo](images/tasktwo.png)
 
 ## Task 3
 Extend the example test program to demostrate when the case of a reference count of 0 where it free the allocated memory.
